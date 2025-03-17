@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RxHamburgerMenu, RxCross2 } from 'react-icons/rx';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import logo from '../../assets/Logo.png';
 import NavMobileView from './NavMobileView';
@@ -11,23 +11,27 @@ const Navbar = () => {
     <header className='sticky top-0 z-50 w-full  bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-20 '>
       <nav className='flex justify-between items-center sm:mx-44 mx-5 pt-8'>
         <div>
-          {/* <p className='text-3xl text-cyan-900 font-extrabold'>CH</p> */}
-          {/* <p className='text-cyan-400'>Connecting people</p> */}
           <img src={logo} alt='logo' className='h-14 w-32' />
         </div>
         <div className='sm:flex gap-14 hidden'>
-          <button className='text-[1rem]  text-slate-950 cursor-pointer font-vollkorn hover:text-cyan-600 font-medium '>
+          <Link
+            className='text-[1rem]  text-slate-950 cursor-pointer font-vollkorn hover:text-cyan-600 font-medium '
+            to='/'
+          >
             Home
-          </button>
-          <button className='text-[1rem]  text-slate-950 cursor-pointer font-vollkorn hover:text-cyan-600 font-medium'>
+          </Link>
+          <Link
+            className='text-[1rem]  text-slate-950 cursor-pointer font-vollkorn hover:text-cyan-600 font-medium'
+            to='/event'
+          >
             Events
-          </button>
-          <button className='text-[0.9rem]  text-slate-950 cursor-pointer font-vollkorn hover:text-cyan-600 font-medium border-2 px-4 pt-2 pb-2 border-[#d4e0f1]'>
+          </Link>
+          <Link className='text-[0.9rem]  text-slate-950 cursor-pointer font-vollkorn hover:text-cyan-600 font-medium border-2 px-4 pt-2 pb-2 border-[#d4e0f1]'>
             About me
-          </button>
+          </Link>
         </div>
         <div className='sm:hidden'>
-          <button
+          <Link
             onClick={() => {
               setIsOPen(!isOpen);
             }}
@@ -37,7 +41,7 @@ const Navbar = () => {
             ) : (
               <RxHamburgerMenu className='text-2xl text-cyan-600 font-extrabold' />
             )}
-          </button>
+          </Link>
           {isOpen ? <NavMobileView /> : null}
         </div>
       </nav>
